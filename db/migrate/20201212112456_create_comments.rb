@@ -4,6 +4,7 @@ class CreateComments < ActiveRecord::Migration[6.0]
       t.text :content
       t.belongs_to :user
       t.belongs_to :project
+      t.belongs_to :translation
       t.timestamps
     end
   end
