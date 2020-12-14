@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :translations
   resources :comments
   resources :words
   resources :projects
