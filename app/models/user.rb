@@ -5,5 +5,5 @@ class User < ApplicationRecord
     has_many :comments, through: :translations
     has_secure_password
 
-    validates
+    validates :name, presence: true, length: { minimum: 3}, with: => /[一-龯ぁ-ゔゞァ-・ヽヾ゛゜ーa-zA-Z]/
 end
