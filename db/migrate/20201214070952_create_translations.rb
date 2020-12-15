@@ -3,8 +3,6 @@ class CreateTranslations < ActiveRecord::Migration[6.0]
     create_table :translations do |t|
       t.string :name
       t.text :content
-      t.belongs_to :user
-      t.belongs_to :project
       t.timestamps
     end
   end
