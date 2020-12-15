@@ -5,5 +5,12 @@ class User < ApplicationRecord
     has_many :comments, through: :translations
     has_secure_password
 
-    validates :name, presence: true, length: { minimum: 3}, with: => /[一-龯ぁ-ゔゞァ-・ヽヾ゛゜ーa-zA-Z]/
+    validates :name, presence: true,
+               length: { minimum: 3, maximum: 254},
+               format: { with: => /[一-龯ぁ-ゔゞァ-・ヽヾ゛゜ーa-zA-Z]/ },
+               uniqueness: true
+    validates :email, presence: true,
+            format: { with: /^(.+)@(.+)$/, message: "Email invalid"  },
+            uniqueness: { case_sensitive: false },
+            length: { minimum: 4, maximum: 254 }   
 end
