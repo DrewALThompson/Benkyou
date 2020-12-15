@@ -10,16 +10,20 @@
   </head>
 
   <body>
-  <div class='sidebar'>
+  <div class='sidenav'>
     <a href='/'>Home</a>
     <% if !current_user %>
       <a href='/login'>Login</a>
       <a href='/signup'>Signup</a>
     <% elsif current_user %>
-      <a href='/users/<%= current_user.id%>'>Insert drop down</a>
-        <a href='/users/<%= current_user.id%>'>My Page</a>
-        <a href='/users/<%= current_user.id%>/words'>My Words</a>
-        <a href='/users/<%= current_user.id%>/projects'>My Projects</a>
+      <div class='sidebar-dropdown'>
+        <p class='dropbox'><%= current_user.name%></p>
+          <div class='dropcontent'>
+            <a href='/users/<%= current_user.id%>'>My Page</a>
+            <a href='/users/<%= current_user.id%>/words'>My Words</a>
+            <a href='/users/<%= current_user.id%>/projects'>My Projects</a>
+          </div>
+      </div>
     <% elsif current_user.admin %>
       <a href='/admin'>Admin</a>
     <% end %>
