@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  resources :translations
-  resources :comments
-  resources :words
+  root :to => 'projects#index'
+
+  resources :users do
+    resources :projects
+    resources :words, except: [:show]
+  end
+
   resources :projects
-  resources :users
+  resources :translations, except: [:index, :show]
+  resources :comments, except: [:index, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
