@@ -17,7 +17,7 @@ DATA = {
     ],
 
     :project_keys =>
-      ["title", "content", "user_id"],
+      ["title", "content", "owner_id"],
     :projects => [
       ["丸の内サディスティック - 椎名林檎", "報酬は入社後並行線で
         東京は愛せど何も無い

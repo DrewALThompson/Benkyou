@@ -5,7 +5,7 @@ class CreateProjects < ActiveRecord::Migration[6.0]
       t.text :content
       t.string :translation_title
       t.text :translation
-      t.belongs_to :user
+      t.integer :owner_id
       t.timestamps
     end
   end

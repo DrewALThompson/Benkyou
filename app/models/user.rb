@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-    has_many :projects
+    has_many :owned_projects, :class_name => 'Project', :foreign_key => 'owner_id'
     has_many :words
-    has_many :comments, through: :projects
+    has_many :comments
+    has_many :projects, through: :comments
     has_secure_password
 
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
