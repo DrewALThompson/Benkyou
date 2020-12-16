@@ -17,8 +17,8 @@ DATA = {
     ],
 
     :project_keys =>
-      ["name", "content", "user_id", "translation_id"]
-    :projects =>
+      ["title", "content", "user_id", "translation_id"]
+    :projects => [
       ["丸の内サディスティック - 椎名林檎", "報酬は入社後並行線で
         東京は愛せど何も無い
         リッケン620頂戴
@@ -91,7 +91,7 @@ DATA = {
         いう言葉を今度は信じてまた
         何度も 何度も 朝を 迎えるんでしょう", 1, 1],
 
-    ["北風と太陽", "「おれの方ほうが強つよい。」
+      ["北風と太陽", "「おれの方ほうが強つよい。」
      「いいや、ぼくの方ほうが強つよい。」
       北風きたかぜと太陽たいようの声こえが聞きこえます。
       二人ふたりはどちらの力ちからが強つよいかでケンカをしているようです。
@@ -102,18 +102,65 @@ DATA = {
       冬ふゆは北風きたかぜの吹ふく風かぜが冷つめたくて、とても寒さむかった。
       みんな外そとに出でられなかったよね？最近さいきんは暖あたたかいから、みんな喜よろこんでいるよ。」
      「いいや、あそこを見みて。太陽たいようが強つよく照てらすから、川かわの水みずがもうすぐ無なくなりそうだ。
-      水みずがないと、みんな生活せいかつできないよ。」", 3, 1],
+      水みずがないと、みんな生活せいかつできないよ。」", 3, 4],
 
-    ["ジャックと豆まめの木", "むかしあるところに、ジャックという男おとこの子こがいました。
-     ジャックはお母かあさんと一緒いっしょに小ちいさな家いえに住すんでいました。
-     二人ふたりは牛うしのミルクを売うって生活せいかつしていましたが、あまりお金かねを持もっていません。
-     ある日ひ、牛うしからミルクが出でなくなって、とうとう牛うしを売うることにしました。
-    「必かならず高たかく売うってきて。」お母かあさんはジャックに言いいました。
-    「もちろん。」ジャックはそう言いって、お店みせへ向むかいました。
-     お店みせへの道みちの途と中ちゅうで、ジャックはふしぎなおじいさんに会あいました。
-     おじいさんは言いいました。「おはよう、ジャック。
-     どこに行いくの？」ジャックは、なんでぼくの名な前まえを知しっているの？と思おもいながら答こたえました。
-     「この牛うしを売うりにお店みせへ行くんだよ。」", 3, 4]
+      ["ジャックと豆まめの木", "むかしあるところに、ジャックという男おとこの子こがいました。
+      ジャックはお母かあさんと一緒いっしょに小ちいさな家いえに住すんでいました。
+      二人ふたりは牛うしのミルクを売うって生活せいかつしていましたが、あまりお金かねを持もっていません。
+      ある日ひ、牛うしからミルクが出でなくなって、とうとう牛うしを売うることにしました。
+     「必かならず高たかく売うってきて。」お母かあさんはジャックに言いいました。
+     「もちろん。」ジャックはそう言いって、お店みせへ向むかいました。
+      お店みせへの道みちの途と中ちゅうで、ジャックはふしぎなおじいさんに会あいました。
+      おじいさんは言いいました。「おはよう、ジャック。
+      どこに行いくの？」ジャックは、なんでぼくの名な前まえを知しっているの？と思おもいながら答こたえました。
+     「この牛うしを売うりにお店みせへ行くんだよ。」", 3, 3]
+    ],
 
-    
+
+    :translation_keys =>
+      [:name, :content]
+    :translations => [
+      ["Shippaisaku - Ircle", "WIP"],
+      ["Marunochi Sadistic - Sheena Ringo", "Business is success...WIP"],
+      ["Jack and the Bean Stalk", "In a land long ago, There lived a boy named Jack"],
+      ["The North Wind and the Sun", "WIP"]
+    ]
 }
+
+def main 
+  make_users
+  make_projects
+  make_translations
+end
+
+def make_users
+  DATA[:users].each do |user|
+    new_user = User.new
+    user.each_with_index do |attribute, i|
+      new_user.send(DATA[:user_keys][i]+"=", attribute)
+    end
+    new_user.save
+  end
+end
+
+def make_projects
+  DATA[:projects].each do |project|
+    new_project = Project.new
+    project.each_with_index do |attribute, i|
+      new_project.send(DATA[:project_keys][i]+"=", attribute)
+    end
+    new_project.save
+  end
+end
+
+def make_translations
+  DATA[:translation].each do translation|
+    new_translation =translation.new
+    translation.each_with_index do |attribute, i|
+      new_translation.send(DATA[translation_keys][i]+"=", attribute)
+    end
+    new_translation.save
+  end
+end
+
+main
