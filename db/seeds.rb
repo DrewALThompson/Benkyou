@@ -12,12 +12,12 @@ DATA = {
         ["Jose", "Jose@email.com", "Josepassword", true],
         ["Mike", "Mike@email.com", "Mike", false],
         ["Rachel", "Rachel@email.com", "Rachel", false],
-        ["怒龍", "douryuu@gmail.com",  "douryuupassword", true]
+        ["怒龍", "douryuu@gmail.com",  "douryuupassword", true],
         ["トレバー", "trevor@gmail.com", "trevor", false]
     ],
 
     :project_keys =>
-      ["title", "content", "user_id", "translation_id"]
+      ["title", "content", "user_id"],
     :projects => [
       ["丸の内サディスティック - 椎名林檎", "報酬は入社後並行線で
         東京は愛せど何も無い
@@ -44,7 +44,7 @@ DATA = {
         将来僧に成って結婚して欲しい
         毎晩寝具で遊戯するだけ
         ピザ屋の彼女になってみたい
-        そしたらベンジー あたしをグレッチで殴って", 2, 2],
+        そしたらベンジー あたしをグレッチで殴って", 2],
 
       ["失敗作 - ircle", "例えばあなたが思い描く昔通の日々を
         実現もできない私は失敗作かもしれません
@@ -89,7 +89,7 @@ DATA = {
         いつまでも勝てないようで
         「約束などできやしない」と
         いう言葉を今度は信じてまた
-        何度も 何度も 朝を 迎えるんでしょう", 1, 1],
+        何度も 何度も 朝を 迎えるんでしょう", 1],
 
       ["北風と太陽", "「おれの方ほうが強つよい。」
      「いいや、ぼくの方ほうが強つよい。」
@@ -102,7 +102,7 @@ DATA = {
       冬ふゆは北風きたかぜの吹ふく風かぜが冷つめたくて、とても寒さむかった。
       みんな外そとに出でられなかったよね？最近さいきんは暖あたたかいから、みんな喜よろこんでいるよ。」
      「いいや、あそこを見みて。太陽たいようが強つよく照てらすから、川かわの水みずがもうすぐ無なくなりそうだ。
-      水みずがないと、みんな生活せいかつできないよ。」", 3, 4],
+      水みずがないと、みんな生活せいかつできないよ。」", 3],
 
       ["ジャックと豆まめの木", "むかしあるところに、ジャックという男おとこの子こがいました。
       ジャックはお母かあさんと一緒いっしょに小ちいさな家いえに住すんでいました。
@@ -113,24 +113,13 @@ DATA = {
       お店みせへの道みちの途と中ちゅうで、ジャックはふしぎなおじいさんに会あいました。
       おじいさんは言いいました。「おはよう、ジャック。
       どこに行いくの？」ジャックは、なんでぼくの名な前まえを知しっているの？と思おもいながら答こたえました。
-     「この牛うしを売うりにお店みせへ行くんだよ。」", 3, 3]
-    ],
-
-
-    :translation_keys =>
-      [:name, :content]
-    :translations => [
-      ["Shippaisaku - Ircle", "WIP"],
-      ["Marunochi Sadistic - Sheena Ringo", "Business is success...WIP"],
-      ["Jack and the Bean Stalk", "In a land long ago, There lived a boy named Jack"],
-      ["The North Wind and the Sun", "WIP"]
+     「この牛うしを売うりにお店みせへ行くんだよ。」", 3]
     ]
 }
 
 def main 
   make_users
   make_projects
-  make_translations
 end
 
 def make_users
@@ -150,16 +139,6 @@ def make_projects
       new_project.send(DATA[:project_keys][i]+"=", attribute)
     end
     new_project.save
-  end
-end
-
-def make_translations
-  DATA[:translation].each do translation|
-    new_translation =translation.new
-    translation.each_with_index do |attribute, i|
-      new_translation.send(DATA[translation_keys][i]+"=", attribute)
-    end
-    new_translation.save
   end
 end
 
