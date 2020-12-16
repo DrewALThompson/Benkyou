@@ -15,18 +15,18 @@ ActiveRecord::Schema.define(version: 2020_12_14_070952) do
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
-    t.integer "translation_id"
+    t.integer "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["translation_id"], name: "index_comments_on_translation_id"
+    t.index ["project_id"], name: "index_comments_on_project_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.integer "user_id"
     t.integer "translation_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["translation_id"], name: "index_projects_on_translation_id"

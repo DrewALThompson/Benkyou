@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :projects
+    resources :translations
     resources :words, except: [:show]
   end
 

@@ -3,8 +3,8 @@ class CreateProjects < ActiveRecord::Migration[6.0]
     create_table :projects do |t|
       t.string :title
       t.text :content
-      t.belongs_to :user
       t.belongs_to :translation
+      t.belongs_to :user
       t.timestamps
     end
   end
