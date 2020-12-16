@@ -8,7 +8,7 @@ class User < ApplicationRecord
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
     validates :name, presence: true,
-               length: { minimum: 3, maximum: 254},
+               length: { minimum: 2, maximum: 254},
                format: { with: /\A[一-龯ぁ-ゔゞァ-・ヽヾ゛゜ーa-zA-Z]/ },
                uniqueness: true
     validates :email, presence: true,
