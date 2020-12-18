@@ -16,7 +16,7 @@
       <a href='/login'>Login</a>
       <a href='/signup'>Signup</a>
     <% elsif current_user %>
-      <div class='sidebar-dropdown'>
+      <div class='topnav-dropdown'>
         <p class='dropbox'><%= current_user.name%></p>
           <div class='dropcontent'>
             <a href='/users/<%= current_user.id%>'>My Page</a>
