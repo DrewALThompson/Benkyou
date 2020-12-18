@@ -53,7 +53,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
   config.include Capybara::DSL
-  config.include LoginHelper, :type => :feature
+  # config.include LoginHelper, :type => :feature
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
