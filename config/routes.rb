@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root :to => 'projects#index'
-
   resources :users do
     resources :projects
     resources :words, except: [:show]
@@ -10,7 +9,7 @@ Rails.application.routes.draw do
   resources :comments, except: [:index, :show]
 
   get '/login' => 'sessions#new'
-  post '/login' => 'session#create'
-  get '/logout' => 'session#destroy'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

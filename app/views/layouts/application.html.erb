@@ -14,7 +14,7 @@
     <a href='/'>Home</a>
     <% if !current_user %>
       <a href='/login'>Login</a>
-      <a href='/signup'>Signup</a>
+      <a href='/users/new'>Signup</a>
     <% elsif current_user %>
       <div class='topnav-dropdown'>
         <p class='dropbox'><%= current_user.name%></p>

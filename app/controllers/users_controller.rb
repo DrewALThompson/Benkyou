@@ -9,11 +9,12 @@ class UsersController < ApplicationController
     end 
 
     def create 
-        @user = User.new(user_params)
+        @user = User.create(user_params)
         if @user.valid?
-            @user.save
+            session[:id] = @user.id
             redirect_to user_path(@user)
         else
+            flash.now[:message] = 'Yo'
             render :new
         end
     end 
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        find_user
+        find_user 
     end 
 
     def delete
