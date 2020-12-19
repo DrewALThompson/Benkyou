@@ -1,0 +1,18 @@
+<div class='topnav'>
+    <a href='/'>Home</a>
+    <% if current_user %>
+      <div class='topnav-dropdown'>
+        <p class='dropbox'><%= current_user.name%></p>
+          <div class='dropcontent'>
+            <a href='/users/<%= current_user.id%>'>My Page</a>
+            <a href='/users/<%= current_user.id%>/words'>My Words</a>
+            <a href='/users/<%= current_user.id%>/projects'>My Projects</a>
+          </div>
+      </div>
+      <a href='/logout'>Logout</a>
+    <% else %>
+      <a href='/login'>Login</a>
+      <a href='/users/new'>Signup</a>
+    <% end %>
+    <a href='https://jisho.org/' target='_blank'>Jisho</a>
+  </div>

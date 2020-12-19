@@ -12,9 +12,9 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.valid?
             session[:id] = @user.id
-            redirect_to user_path(@user)
+            redirect_to root_url
         else
-            flash.now[:message] = 'Yo'
+            flash.now[:message] = 'Your username or password was invalid please try again'
             render :new
         end
     end 
@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     end 
 
     def delete
-        find_user
     end 
 
     private
