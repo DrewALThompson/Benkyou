@@ -7,6 +7,9 @@
           <%= link_to "My Page", user_path(current_user)%>
           <%= link_to "My Words", user_words_path(current_user)%>
           <%= link_to "My Projects", user_projects_path(current_user)%>
+          <% if current_user.admin == true %>
+            <%= link_to "Admin", admin_path %>
+          <% end %>
         </div>
       </div>
       <a href='/logout'>Logout</a>

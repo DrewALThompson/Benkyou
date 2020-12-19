@@ -11,5 +11,11 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
+  get '/admin' => 'admin#index'
+  namespace :admin do
+    resources :stats, only: [:index]
+    resources :users, only: [:edit, :update]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
