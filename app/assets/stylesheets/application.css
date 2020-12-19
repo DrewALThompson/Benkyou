@@ -76,3 +76,7 @@
 .dropdown:hover .dropcontent {
   display: block;
 }
+
+body {
+    background-color: rgb(151, 163, 165);
+}

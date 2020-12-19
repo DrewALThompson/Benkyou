@@ -1,3 +1,16 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.sidecontent {
+    position: absolute;
+    right: 8px;
+    width: 200px;
+    
+    border-left: 3px solid #333;
+    border-right: 3px solid #333;
+    border-bottom: 3px solid #333;
+    padding: 10px;
+    overflow: auto;
+}
+
