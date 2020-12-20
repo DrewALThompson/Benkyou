@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// SIDEBAR
+
 .sidecontent {
     position: absolute;
     right: 0px;
@@ -14,4 +16,52 @@
     overflow: auto;
     background: #75AF96
 }
+
+// INDEX
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
+  right: 5px;
+  padding: 10px 10px 10px 10px;
+  border: solid 1px black;
+}
+
+.project-container {
+  display: flex;
+  width: 80%;
+  padding: 10px;
+  border: solid 1px black;
+}
+
+
+
+.titles {
+  display: inline-block;
+  width: 100%;
+  border: solid 1px black;
+}
+
+.title {
+  padding: 0px 10px;
+}
+
+.trans-title {
+
+}
+
+.contents {
+  overflow: hidden;
+}
+
+.trns {
+  overflow: hidden;
+}
+
+.owner {
+
+}
+
 

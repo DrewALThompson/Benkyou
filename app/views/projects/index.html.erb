@@ -1,13 +1,16 @@
 <% @projects.each do |project| %>
+<br>
 <div class='projects'>
   <div class='titles'>
-    <%= link_to "#{project.title}", project_path(project) %>
+    <div class='title'>
+      <%= link_to "#{project.title}", project_path(project) %>
+    </div>
+    <div class='trns-title'>
+      <%= project.translation_title%>
+    </div>
   </div>
   <div class='contents'>
     <%= project.content %>
-  </div>
-  <div class='trns-title'>
-    <%= project.translation_title%>
   </div>
   <div class='trns'>
     <%= project.translation %>
@@ -15,5 +18,5 @@
   <div class='owner'>
     By <%= project.owner.name %>
   </div>
-</div>
+</div>  
 <% end %>

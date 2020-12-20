@@ -1,1 +1,21 @@
-<%= render 'sidecontent'%>
+<% if current_user %>
+  <%= render 'sidecontent'%>
+<% end %>
+
+<br>
+<div class='project-container'>
+  <div class='project'>
+    <div class='title'>
+      <%= @project.title %>
+    </div>
+    <div class='contents'>
+      <%= @project.content %>
+    </div>
+  </div>
+  <div class='translation'>
+    <div class='trns-title'>
+    </div>
+    <div class='trns'>
+    </div>
+  </div>
+</div>
