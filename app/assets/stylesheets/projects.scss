@@ -22,11 +22,12 @@
 .projects {
   display: flex;
   flex-direction: column;
+  margin: auto;
   width: 90%;
   height: 100%;
-  right: 5px;
   padding: 10px 10px 10px 10px;
   border: solid 1px black;
+  box-shadow: 2px 4px;
 }
 
 .project-container {
