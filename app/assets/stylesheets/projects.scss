@@ -4,13 +4,14 @@
 
 .sidecontent {
     position: absolute;
-    right: 8px;
+    right: 0px;
     width: 200px;
     
     border-left: 3px solid #333;
-    border-right: 3px solid #333;
+    border-right: 1px solid #333;
     border-bottom: 3px solid #333;
     padding: 10px;
     overflow: auto;
+    background: #75AF96
 }
 

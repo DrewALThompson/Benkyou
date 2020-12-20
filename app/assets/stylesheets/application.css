@@ -17,9 +17,10 @@
  /* LAYOUT */
 
  .topnav {
-    background-color: #333;
+    background-color: #003A21;
     overflow: hidden;
  }
+
 
  .topnav a {
     float: left;
@@ -28,6 +29,10 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 16px;
+ }
+
+ .topnav a.home {
+   font-size: 14px;
  }
 
  .dropdown {
@@ -47,7 +52,7 @@
  }
 
  .topnav a:hover, .dropdown:hover .dropbtn {
-     background-color: #333366
+     background-color: #62838E
  }
 
 
@@ -70,7 +75,7 @@
 }
 
 .dropcontent a:hover {
-  background-color: rgb(116, 121, 145);
+  background-color: #8f8c8c;
 }
 
 .dropdown:hover .dropcontent {
@@ -78,5 +83,6 @@
 }
 
 body {
-    background-color: rgb(151, 163, 165);
+    background-color: #499272;
+    margin: 0;
 }
