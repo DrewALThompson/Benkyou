@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :projects
   resources :comments, except: [:index, :show]
+  resources :words
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

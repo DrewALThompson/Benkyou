@@ -1,28 +1,23 @@
 <div class='sidecontent'>
-  <div class='words'>
-     Visible
+  <div class='new-word-form'>
+    <%= form_for(@word) do |f| %>
+      <%= f.text_field :character, placeholder: 'Japanese Characters'%>
+      <%= f.text_field :name, placeholder: 'Name in English'%>
+      <%= f.text_field :definition, placeholder: 'Write in the meaning!' %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.submit "Save Word!" %>
+    <% end %>
   </div>
-  <div class='words'>
-     Visible
+  <br>
+  <div class='words-container'>
+      <div class='words'>
+        Visible
+      </div>
+      <div class='words'>
+        Visible
+      </div>
+      <div class='words'>
+        Visible
+      </div>
   </div>
-  <div class='words'>
-     Visible
-  </div>
-  <div class='words'>
-     Visible
-  </div>
-  <div class='words'>
-     Visible
-  </div>
-  <div class='words'>
-     Visible
-  </div>
-  <div class='words'>
-     Visible
-  </div>
-  <div class='words'>
-     Visible
-  </div>
-  
-
 </div>

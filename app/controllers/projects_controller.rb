@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
 
     def show
         @project = Project.find(params[:id])
+        @word = Word.new
     end
 
     def edit
