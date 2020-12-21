@@ -14,10 +14,13 @@
   </div>
   <div class='translation'>
     <div class='trns-title'>
+      <%= @project.translation_title %>
     </div>
     <div class='trns'>
+      <%= @project.translation %>
     </div>
   </div>
 </div>
+<%= link_to "Get to Translating!", edit_project_path(@project)%>
 <br>
 <%= render "commentcontent"%> 

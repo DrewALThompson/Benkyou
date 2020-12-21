@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
-    before_action :require_login, except: [:index, :show]
+    before_action :require_login, except: [:index, :show, :edit]
+    before_action :pre_load_word_comment_project, only: [:show, :edit]
 
     def index
         @projects = Project.all
@@ -19,14 +20,11 @@ class ProjectsController < ApplicationController
     end
 
     def show
-        @project = Project.find(params[:id])
-        @words = current_user.words
-        @comments = @project.comments
-        @word = Word.new
-        @comment = Comment.new
+        pre_load_word_comment_project
     end
 
     def edit
+        pre_load_word_comment_project
     end
 
     def update
@@ -34,7 +32,11 @@ class ProjectsController < ApplicationController
 
     private
 
-    def find_project
+    def pre_load_word_comment_project
         @project = Project.find(params[:id])
+        @word = Word.new
+        @words = current_user.words
+        @comments = @project.comments
+        @comment = Comment.new
     end
 end

@@ -1,0 +1,11 @@
+<%= render 'sidecontent' %>
+<%= form_for(@project) do |f| %>
+  <%= f.text_field :title, :value => "#{@project.title}" %>
+  <%= f.text_area :content, :value => "#{@project.content}" %>
+  <%= f.text_field :translation_title %>
+  <%= f.text_area :translation%>
+  <%= f.submit "Save" %>
+<% end %>
+
+<%= render 'commentcontent' %>
+
