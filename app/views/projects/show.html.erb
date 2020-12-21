@@ -20,14 +20,4 @@
   </div>
 </div>
 <br>
-<div class='comments'>
-  Insert Comments here
-</div>
-<div class='comment-form'>
-  <% if current_user %>
-    <%= form_for(@comment) do |f| %>
-      <%%>
-    <% end %>
-  <% else %>
-    <%= link_to "Login to add a comment!", login_path %>
-</div>
+<%= render "commentcontent"%> 

@@ -4,6 +4,7 @@ class WordsController < ApplicationController
         @word = Word.new(word_params)
         if @word.save 
             flash[:alert] = "Word Saved"
+            redirect_back(fallback_location: root_path)
         else
             flash[:alert] = "Word is missing either a name or a definition"
         end

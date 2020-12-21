@@ -3,21 +3,20 @@
     <%= form_for(@word) do |f| %>
       <%= f.text_field :name, placeholder: 'Your Word!'%>
       <%= f.text_field :name2, placeholder: 'Alt. Spelling/Hiragana/Rom?'%>
-      <%= f.text_field :definition, placeholder: 'Write in the meaning!' %>
+      <%= f.text_area :definition, placeholder: 'Write in the meaning!' %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.submit "Save Word!" %>
     <% end %>
   </div>
   <br>
   <div class='words-container'>
+      <% current_user.words.each do |word| %>
       <div class='words'>
-        Visible
+        <div class='name'><%= word.name %></div>
+        <div class='name-alt'><%= word.name2 %></div>
+        <div class='definition'><%= word.definition %></div>
       </div>
-      <div class='words'>
-        Visible
-      </div>
-      <div class='words'>
-        Visible
-      </div>
+      <br>
+      <% end %>
   </div>
 </div>

@@ -1,0 +1,22 @@
+<div class='comments'>
+  <% if @project.comments.empty? %>
+    Be the first to comment!
+  <% else %>
+    <% @project.comments.each do |comment| %>
+    <div class='commentbox'>
+      <div class='comment'><%= comment.content %></div>
+      <div class='commenter'><%= comment.commenter.name%></div>
+    </div>
+    <% end %>
+</div>
+<% end %>
+<div class='comment-form'>
+  <% if current_user %>
+    <%= form_for(@comment) do |f| %>
+      <%= f.text_area :content, placeholder: "Write your comment here!" %>
+      <%= f.submit "Enter" %>
+    <% end %>
+  <% else %>
+    <%= link_to "Login to add a comment!", login_path %>
+  <% end %>
+</div>
