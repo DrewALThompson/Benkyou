@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2020_12_12_112456) do
   end
 
   create_table "words", force: :cascade do |t|
-    t.string "character"
     t.string "name"
+    t.string "name2"
     t.text "definition"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false

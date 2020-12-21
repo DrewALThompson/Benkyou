@@ -13,7 +13,8 @@ DATA = {
         ["Mike", "Mike@email.com", "Mike", false],
         ["Rachel", "Rachel@email.com", "Rachel", false],
         ["怒龍", "douryuu@gmail.com",  "douryuupassword", true],
-        ["トレバー", "trevor@gmail.com", "trevor", false]
+        ["トレバー", "trevor@gmail.com", "trevor", false],
+        ["Admin", "admin@benkyou.com", "Admin", true]
     ],
 
     :project_keys =>
@@ -114,12 +115,21 @@ DATA = {
       おじいさんは言いいました。「おはよう、ジャック。
       どこに行いくの？」ジャックは、なんでぼくの名な前まえを知しっているの？と思おもいながら答こたえました。
      「この牛うしを売うりにお店みせへ行くんだよ。」", 3]
+    ],
+
+    :word_keys =>
+      ["name", "name2", "definition", "user_id"],
+    :words => [
+        ["北風", "Kazekita/かぜきた", "North Wind", 3],
+        ["丸の内", "Marunochi/まるのち", "A district in Japan of the same name", 2],
+        ["失敗作", "Shippaisaku/しっぱいさく", "Failure", 1]
     ]
 }
 
 def main 
   make_users
   make_projects
+  make_words
 end
 
 def make_users
@@ -139,6 +149,16 @@ def make_projects
       new_project.send(DATA[:project_keys][i]+"=", attribute)
     end
     new_project.save
+  end
+end
+
+def make_words
+  DATA[:words].each do |word|
+    new_word = Word.new
+    word.each_with_index do |attribute, i|
+      new_word.send(DATA[:word_keys][i]+"=", attribute)
+    end
+    new_word.save
   end
 end
 

@@ -1,8 +1,8 @@
 <div class='sidecontent'>
   <div class='new-word-form'>
     <%= form_for(@word) do |f| %>
-      <%= f.text_field :character, placeholder: 'Japanese Characters'%>
-      <%= f.text_field :name, placeholder: 'Name in English'%>
+      <%= f.text_field :name, placeholder: 'Your Word!'%>
+      <%= f.text_field :name2, placeholder: 'Alt. Spelling/Hiragana/Rom?'%>
       <%= f.text_field :definition, placeholder: 'Write in the meaning!' %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.submit "Save Word!" %>
