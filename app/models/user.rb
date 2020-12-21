@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_many :owned_projects, :class_name => 'Project', :foreign_key => 'owner_id'
     has_many :words
-    has_many :comments
+    has_many :comments, :class_name => 'Comment', :foreign_key => 'commenter_id'
     has_many :projects, through: :comments
     has_secure_password
 

@@ -14,6 +14,8 @@
   <% if current_user %>
     <%= form_for(@comment) do |f| %>
       <%= f.text_area :content, placeholder: "Write your comment here!" %>
+      <%= f.hidden_field :commenter_id, value: current_user.id  %>
+      <%= f.hidden_field :project_id, value: @project.id %>
       <%= f.submit "Enter" %>
     <% end %>
   <% else %>

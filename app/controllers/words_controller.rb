@@ -7,8 +7,13 @@ class WordsController < ApplicationController
             redirect_back(fallback_location: root_path)
         else
             flash[:alert] = "Word is missing either a name or a definition"
+            redirect_back(fallback_location: root_path)
         end
     end
+
+    def index 
+        @user = User.find(params[:id])
+    end 
 
     private
 
