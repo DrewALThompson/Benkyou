@@ -21,6 +21,10 @@
     </div>
   </div>
 </div>
-<%= link_to "Get to Translating!", edit_project_path(@project)%>
+<% if @project.id == current_user.id %>
+<div class='translation-link'>
+  <%= link_to "Get to Translating!", edit_project_path(@project)%>
+</div>
+<% end %>
 <br>
 <%= render "commentcontent"%> 

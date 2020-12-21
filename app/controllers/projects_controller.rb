@@ -20,11 +20,11 @@ class ProjectsController < ApplicationController
     end
 
     def show
-        pre_load_word_comment_project
+       
     end
 
     def edit
-        pre_load_word_comment_project
+        redirect_to root_url unless @project.id == current_user.id
     end
 
     def update

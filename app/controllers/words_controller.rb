@@ -1,4 +1,5 @@
 class WordsController < ApplicationController
+    before_action :current_user, only: [:index, :edit, :show]
 
     def create
         @word = Word.new(word_params)
@@ -12,7 +13,7 @@ class WordsController < ApplicationController
     end
 
     def index 
-        @user = User.find(params[:id])
+        
     end 
 
     private
