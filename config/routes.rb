@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :comments, except: [:index, :show]
   resources :words
-  match '/auth/:provider/callback', to: 'sessions#facebook', via; [:get, :post]
+  match '/auth/facebook/callback', to: 'sessions#facebook', via: [:get, :post]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
