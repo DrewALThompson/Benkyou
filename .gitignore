@@ -42,6 +42,3 @@ yarn-debug.log*
 
 NOTES.md
 .env
-key.pem
-localhost.crt 
-localhost.key
