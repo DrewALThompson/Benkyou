@@ -34,9 +34,11 @@ class ProjectsController < ApplicationController
 
     def pre_load_word_comment_project
         @project = Project.find(params[:id])
-        @word = Word.new
-        @words = current_user.words
         @comments = @project.comments
         @comment = Comment.new
+        if current_user
+            @word = Word.new
+            @words = current_user.words
+        end
     end
 end

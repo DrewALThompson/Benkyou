@@ -21,7 +21,7 @@
     </div>
   </div>
 </div>
-<% if @project.id == current_user.id %>
+<% if current_user && current_user.id == @project.owner_id %>
 <div class='translation-link'>
   <%= link_to "Get to Translating!", edit_project_path(@project)%>
 </div>
