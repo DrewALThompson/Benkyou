@@ -60,5 +60,7 @@ gem 'bcrypt'
 
 gem 'omniauth'
 
-gem 'omniauth-google'
+gem 'omniauth-facebook'
+
+gem 'dotenv-rails'
 
