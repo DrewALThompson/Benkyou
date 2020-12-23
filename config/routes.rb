@@ -2,13 +2,12 @@ Rails.application.routes.draw do
   root :to => 'projects#index'
   resources :users do
     resources :projects
-    resources :words, except: [:show]
+    resources :words, except: [:new]
   end
 
   resources :projects
-  resources :comments, except: [:index, :show]
-  resources :words
-  match '/auth/facebook/callback', to: 'sessions#facebook', via: [:get, :post]
+  resources :comments, only: [:create, :edit, :destroy]
+  match '/auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
