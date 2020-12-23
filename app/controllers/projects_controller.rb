@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    before_action :require_login, except: [:index, :show, :edit]
+    before_action :require_login, except: [:index, :show, :edit, :create]
     before_action :pre_load_word_comment_project, only: [:show, :edit]
 
     def index
@@ -15,8 +15,8 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        @project = Project.create(title: params[:title], content: params[:content], owner_id: params[:owner_ids])
-        if @project.valid?
+        @project = Project.new(project_params)
+        if @project.save
             redirect_to project_path(@project)
         else
             render :new
@@ -28,13 +28,17 @@ class ProjectsController < ApplicationController
     end
 
     def edit
-        redirect_to root_url unless @project.id == current_user.id
+        redirect_to root_url unless @project.owner_id == current_user.id
     end
 
     def update
     end
 
     private
+
+    def project_params
+        params.require(:project).permit(:title, :content, :translation, :translation_title, :owner_id)
+    end
 
     def pre_load_word_comment_project
         @project = Project.find(params[:id])
