@@ -1,22 +1,27 @@
-<% @projects.each do |project| %>
-<br>
-<div class='projects'>
-  <div class='titles'>
-    <div class='title'>
-      <%= link_to "#{project.title}", project_path(project) %>
+<% if @projects.empty? %>
+  There are currently no projects! Try adding your own! <%= link_to "Create a project", new_project_path %>
+<% else %>
+
+  <% @projects.each do |project| %>
+  <br>
+  <div class='projects'>
+    <div class='titles'>
+      <div class='title'>
+        <%= link_to "#{project.title}", project_path(project) %>
+      </div>
+      <div class='trns-title'>
+        <%= project.translation_title%>
+      </div>
     </div>
-    <div class='trns-title'>
-      <%= project.translation_title%>
+    <div class='contents'>
+      <%= project.content %>
     </div>
-  </div>
-  <div class='contents'>
-    <%= project.content %>
-  </div>
-  <div class='trns'>
-    <%= project.translation %>
-  </div>
-  <div class='owner'>
-    By <%= project.owner.name %>
-  </div>
-</div>  
+    <div class='trns'>
+      <%= project.translation %>
+    </div>
+    <div class='owner'>
+      By <%= project.owner.name %>
+    </div>
+  </div>  
+  <% end %>
 <% end %>

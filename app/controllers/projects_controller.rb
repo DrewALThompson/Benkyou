@@ -3,7 +3,11 @@ class ProjectsController < ApplicationController
     before_action :pre_load_word_comment_project, only: [:show, :edit]
 
     def index
-        @projects = Project.all
+        if params[:user_id]
+            @projects = User.find(params[:user_id]).projects 
+        else
+          @projects = Project.all
+        end
     end
 
     def new

@@ -12,7 +12,8 @@
           <% end %>
         </div>
       </div>
-    <a href='/logout'>Logout</a>
+    <%= link_to "Create a project", new_project_path%>
+    <%= link_to "Logout", logout_path %>
     <% else %>
       <%=link_to "Login", login_path%>
       <%=link_to "Sign Up", new_user_path%>
