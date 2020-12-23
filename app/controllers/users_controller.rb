@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :find_user, [:show, :edit, :update, :delete]
 
     def index
         @users = User.all
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
     end 
 
     def delete
+        find_user
     end 
 
     private

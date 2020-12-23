@@ -32,6 +32,14 @@ class ProjectsController < ApplicationController
     end
 
     def update
+        @project = Project.find(params[:id])
+        @project.update(project_params)
+        if project.save
+            render :show
+        else
+            flash[:alert] = "Project failed to save"
+            render :show
+        end
     end
 
     private
