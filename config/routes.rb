@@ -4,9 +4,10 @@ Rails.application.routes.draw do
     resources :projects
     resources :words, except: [:new]
   end
-
+  
+  resources :words
   resources :projects
-  resources :comments, only: [:create, :edit, :destroy]
+  resources :comments, only: [:new, :create, :edit, :update, :destroy]
   match '/auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
 
   get '/login' => 'sessions#new'

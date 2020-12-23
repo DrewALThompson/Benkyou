@@ -1,0 +1,12 @@
+<div class='comments'>
+  <% if @project.comments.empty? %>
+    Be the first to comment!
+  <% else %>
+    <% @project.comments.each do |comment| %>
+    <div class='commentbox'>
+      <div class='comment'><%= comment.content %></div>
+      <div class='commenter'><%= comment.commenter.name%></div>
+    </div>
+    <% end %>
+</div>
+<% end %>

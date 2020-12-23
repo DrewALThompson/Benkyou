@@ -1,4 +1,4 @@
-<%= render 'sidecontent' %>
+<%= render 'sidewoform' %>
 <%= form_for(@project) do |f| %>
   <%= f.text_field :title, :value => "#{@project.title}" %>
   <%= f.text_area :content, :value => "#{@project.content}" %>
@@ -7,5 +7,5 @@
   <%= f.submit "Save" %>
 <% end %>
 
-<%= render 'commentcontent' %>
+<%= render 'commentwoform' %>
 

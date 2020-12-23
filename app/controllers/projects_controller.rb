@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
     def index
         if params[:user_id]
-            @projects = User.find(params[:user_id]).projects 
+            @projects = User.find(params[:user_id]).owned_projects 
         else
           @projects = Project.all
         end
@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
     def update
         @project = Project.find(params[:id])
         @project.update(project_params)
-        if project.save
+        if @project.save
             render :show
         else
             flash[:alert] = "Project failed to save"
