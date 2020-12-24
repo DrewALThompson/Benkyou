@@ -4,7 +4,7 @@
 <ul>
   <% @users.each do |user| %>
   
-  <li class='userblock'><% link_to <%= user.name %>, user_projects_path(user.projects)%><br>
+  <li class='userblock'><%= link_to <%= user.name %>, user_projects_path(user.projects)%><br>
   <p>Projects: <%= user.owned_projects.count%></p></li>
   <% end %>
 </ul>
