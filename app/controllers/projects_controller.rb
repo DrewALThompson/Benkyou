@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    before_action :require_login, except: [:index, :show, :edit, :create]
+    before_action :require_login, except: [:index, :show]
     before_action :pre_load_word_comment_project, only: [:show, :edit]
 
     def index

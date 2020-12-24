@@ -24,9 +24,16 @@ class WordsController < ApplicationController
     end 
 
     def edit
+        redirect_to root_url unless current_user.id == @word.user_id
     end
 
     def update
+        @word.update(word_params)
+        if @word.valid?
+            redirect_to user_words_path(current_user)
+        else
+            render 'edit'
+        end
     end 
 
     def destroy

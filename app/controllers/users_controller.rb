@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    before_action :find_user, only: [:show, :edit, :update, :delete]
-    before_action :require_login, only: [:edit, :update, :delete]
+    before_action :find_user, only: [:show, :edit, :update, :destroy]
+    before_action :require_login, only: [:edit, :update, :destroy]
     before_action :require_admin, only: [:index]
 
     def index
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
         end
     end 
 
-    def delete
+    def destroy
     end 
 
     private
@@ -50,6 +50,10 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
+    end
+
+    def not_user_or_admin
+        redirect_to root_url unless current_user.id == find_user.id || current_user.admin
     end
 
 

@@ -1,0 +1,7 @@
+<%= form_for(@word) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_field :name2 %>
+    <%= f.text_area :definition %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.submit "Save Word!" %>
+ <% end %>
