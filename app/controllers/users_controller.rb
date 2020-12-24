@@ -23,12 +23,20 @@ class UsersController < ApplicationController
     end 
 
     def show
+        redirect_to user_projects_path(@user)
     end 
 
     def edit 
+        redirect_to root_url unless current_user.id == find_user.id || current_user.admin
     end
 
     def update
+        @user.update(user_params)
+        if @user.valid?
+            redirect_to user_projects_path(@user)
+        else
+           render 'edit'
+        end
     end 
 
     def delete
@@ -41,7 +49,7 @@ class UsersController < ApplicationController
     end 
 
     def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
     end
 
 end

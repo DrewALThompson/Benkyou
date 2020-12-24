@@ -1,7 +1,22 @@
-<%= form_for(@user) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name, placeholder: @user.name %>
-<%= f.label :email %>
-<%= f.text_field :email, placeholder: @user.email %>
-<%= f.submit %>
+<% if current_user && !current_user.admin %>
+<div class='edit-form'>
+  <%= form_for(@user) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: @user.name %>
+  <%= f.label :email %>
+  <%= f.text_field :email, placeholder: @user.email %>
+  <%= f.submit %>
+  <% end %>
+</div>
+<% elsif current_user.admin %>
+<div class='edit-form'>
+  <%= form_for(@user) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: @user.name %>
+  <%= f.label :email %>
+  <%= f.text_field :email, placeholder: @user.email %>
+  <%= f.label :admin %>
+  <%= f.check_box :admin%>
+  <%= f.submit %>
+  <% end %>
 <% end %>
