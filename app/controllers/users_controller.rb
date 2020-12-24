@@ -23,19 +23,15 @@ class UsersController < ApplicationController
     end 
 
     def show
-        find_user
     end 
 
     def edit 
-        find_user
     end
 
     def update
-        find_user 
     end 
 
     def delete
-        find_user
     end 
 
     private

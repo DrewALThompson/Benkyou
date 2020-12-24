@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get '/admin' => 'admin#index'
+  get '/admin/stats' => 'admin#stats'
   namespace :admin do
-    resources :stats, only: [:index]
-    resources :users, only: [:edit, :update]
+    resources :users, only: [:index, :show, :edit, :update]
   end
   get "*any", via: :all, to: "errors#not_found"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
