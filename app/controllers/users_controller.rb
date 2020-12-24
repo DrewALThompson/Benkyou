@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     end 
 
     def edit 
-        redirect_to root_url unless current_user.id == find_user.id || current_user.admin
+        not_user_or_admin
     end
 
     def update
@@ -51,5 +51,6 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
     end
+
 
 end

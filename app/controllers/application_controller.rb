@@ -14,5 +14,9 @@ class ApplicationController < ActionController::Base
         redirect_to root_url unless current_user && current_user.admin
     end 
 
+    def not_user_or_admin
+        redirect_to root_url unless current_user.id == find_user.id || current_user.admin
+    end
+
 
 end
