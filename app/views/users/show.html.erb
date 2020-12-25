@@ -1,1 +1,29 @@
-<%%>
+<div class='edit-box'>
+<% if current_user == @user %>
+    <%= link_to "Edit My profile", edit_user_path(current_user) %>
+  <% elsif current_user.admin %>
+    <%= link_to "Edit #{@user.name}'s profile", edit_user_path(@user) %>
+<% end %>
+</div>
+
+<%= link_to "View #{@user.name}'s Projects!", user_projects_path(@user) %><br>
+
+<%= link_to "View #{@user.name}'s Words!", user_words_path(@user)%><br>
+
+<div class='edit-box'>
+    <% if current_user == @user || current_user.admin %>
+      <% if current_user == @user %>
+      <div class ='edit-user'>
+        <%= link_to "Edit My Profile", edit_user_path(current_user) %>  
+      </div>
+      <div class='deletebtn'>
+        <%= link_to "Delete", @user, method: :delete, data: { confirm: "Really?" } %>
+      </div>
+      <% elsif current_user.admin %>
+      <div class ='edit-user'>
+        <%= link_to "Edit #{@user.name}'s Profile", edit_user_path(@user) %>  
+      </div>
+      <% end %>
+    <% end %>
+</div>
+

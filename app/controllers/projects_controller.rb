@@ -4,7 +4,6 @@ class ProjectsController < ApplicationController
 
     def index
         if params[:user_id]
-            @user = User.find(params[:user_id])
             @projects = User.find(params[:user_id]).owned_projects 
         else
           @projects = Project.all
@@ -43,7 +42,9 @@ class ProjectsController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
+        @project = Project.find(params[:id])
+        redirect_to projects_path
     end
 
     private

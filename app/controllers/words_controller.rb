@@ -37,6 +37,8 @@ class WordsController < ApplicationController
     end 
 
     def destroy
+        find_word.destroy
+        redirect_to words_path
     end 
 
     private

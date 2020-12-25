@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     end 
 
     def show
-        redirect_to user_projects_path(@user)
+        
     end 
 
     def edit 
@@ -40,6 +40,8 @@ class UsersController < ApplicationController
     end 
 
     def destroy
+        find_user.destroy
+        redirect_to root_url
     end 
 
     private

@@ -14,12 +14,24 @@ class CommentsController < ApplicationController
     end
 
     def update
+        @comment.update(comment_params)
+        if @comment.valid?
+            redirect_to project_path(@comment.project)
+        else
+            render 'edit'
+        end
     end
 
     def destroy
+        @comment.destroy
+        redirect_to projects_path
     end
 
     private
+
+    def find_comment
+        @comment = Comment.find(params[:id])
+    end
 
     def comment_params
         params.require(:comment).permit(:content, :commenter_id, :project_id)

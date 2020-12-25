@@ -1,12 +1,6 @@
 <% if @projects.empty? %>
   There are currently no projects! Try adding your own! <%= link_to "Create a project", new_project_path %>
 <% else %>
-<% if current_user == @user %>
-  <%= link_to "Edit My profile", edit_user_path(current_user) %>
-<% elsif current_user.admin %>
-  <%= link_to "Edit #{@user.name}'s profile", edit_user_path(@user) %>
-<% end %>
-
   <% @projects.each do |project| %>
   <br>
   <div class='projects'>
@@ -25,7 +19,17 @@
       <%= project.translation %>
     </div>
     <div class='owner'>
-      By <%= project.owner.name %>
+      By <%= link_to "#{project.owner.name}", user_path(project.owner) %>
+    </div>
+    <div class='edit-box'>
+    <% if current_user.id == project.owner_id %>
+      <div class ='edit-project'>
+        <%= link_to "Edit Project", edit_project_path(project) %>  
+      </div>
+      <div class='deletebtn'>
+        <%= link_to "Delete", project, method: :delete, data: { confirm: "Really?" } %>
+      </div>
+    <% end %>
     </div>
   </div>  
   <% end %>
