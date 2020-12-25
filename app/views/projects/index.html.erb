@@ -22,7 +22,7 @@
       By <%= link_to "#{project.owner.name}", user_path(project.owner) %>
     </div>
     <div class='edit-box'>
-    <% if current_user.id == project.owner_id %>
+    <% if current_user && current_user.id == project.owner_id %>
       <div class ='edit-project'>
         <%= link_to "Edit Project", edit_project_path(project) %>  
       </div>

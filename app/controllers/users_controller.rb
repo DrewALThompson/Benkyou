@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     end 
 
     def show
-        
+
     end 
 
     def edit 
@@ -40,7 +40,8 @@ class UsersController < ApplicationController
     end 
 
     def destroy
-        find_user.destroy
+        destroy_all
+        @user.delete
         redirect_to root_url
     end 
 
@@ -56,6 +57,11 @@ class UsersController < ApplicationController
 
     def not_user_or_admin
         redirect_to root_url unless current_user.id == find_user.id || current_user.admin
+    end
+
+    def destroy_all
+        @user.owned_projects.delete_all
+        @user.comments.delete_all
     end
 
 
