@@ -6,6 +6,9 @@ class CommentsController < ApplicationController
         @comment = Comment.new(comment_params)
         if @comment.save
             redirect_back(fallback_location: root_path)
+        else 
+            flash.alert = 'Failed to create comment!'
+            redirect_back(fallback_location: root_path)
         end
     end
 
@@ -18,6 +21,7 @@ class CommentsController < ApplicationController
         if @comment.valid?
             redirect_to project_path(@comment.project)
         else
+            flash.now[:alert] = 'Comment failed to edit!'
             render 'edit'
         end
     end

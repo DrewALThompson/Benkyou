@@ -15,9 +15,10 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.valid?
             session[:id] = @user.id
+            flash.alert = 'Welcome to Benkyou!'
             redirect_to root_url
         else
-            flash.now[:message] = 'Your username or password was invalid please try again'
+            flash.now[:alert] = 'User failed to create! Please try again.'
             render :new
         end
     end 
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
         if @user.valid?
             redirect_to user_projects_path(@user)
         else
+            flash.now.alert = "Failed to update #{@user.name}. Please make sure all fields are filled in correctly."
            render 'edit'
         end
     end 

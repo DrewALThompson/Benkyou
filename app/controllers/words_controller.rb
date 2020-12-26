@@ -20,6 +20,8 @@ class WordsController < ApplicationController
     def index 
         if params[:user_id]
             @words = User.find(params[:user_id]).words
+        else 
+            redirect_to root_url
         end
     end 
 
@@ -32,6 +34,7 @@ class WordsController < ApplicationController
         if @word.valid?
             redirect_to user_words_path(current_user)
         else
+            flash.now[:alert] = "Failed to update #{@word.name}. Please make sure to have a name and a definition."
             render 'edit'
         end
     end 

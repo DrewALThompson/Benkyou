@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
         if @project.save
             redirect_to project_path(@project)
         else
+            flash.now[:alert] = 'Project Failed to create. Please include a title and content!'
             render :new
         end
     end
@@ -35,9 +36,10 @@ class ProjectsController < ApplicationController
         @project = Project.find(params[:id])
         @project.update(project_params)
         if @project.save
+            flash.now[:alert] = "Project Saved"
             render :show
         else
-            flash[:alert] = "Project failed to save"
+            flash.now[:alert] = "Project failed to save"
             render :show
         end
     end
