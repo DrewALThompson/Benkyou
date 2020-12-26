@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     end
 
     def edit
-        
+        redirect_to root_url unless current_user.id == @comment.commenter_id
     end
 
     def update

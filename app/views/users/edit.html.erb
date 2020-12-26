@@ -1,3 +1,4 @@
+<%= render 'errors' %>
 <% if current_user && !current_user.admin %>
 <div class='edit-form'>
   <%= form_for(@user) do |f| %>

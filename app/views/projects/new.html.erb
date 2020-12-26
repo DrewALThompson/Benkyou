@@ -1,8 +1,9 @@
+<%= render 'errors' %>
 <%= form_for(@project) do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<%= f.label :content %>
-<%= f.text_area :content %>
-<%= f.hidden_field :owner_id, value: current_user.id %>
-<%= f.submit "Create Project" %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.hidden_field :owner_id, value: current_user.id %>
+  <%= f.submit "Create Project" %>
 <% end %>

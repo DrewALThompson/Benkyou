@@ -1,6 +1,6 @@
 <%= form_for(@comment) do |f| %>
     <%= f.text_area :content %>
-    <%= f.hidden_field :commenter_id, value: current_user.id  %>
-    <%= f.hidden_field :project_id, value: @project.id %>
+    <%= f.hidden_field :commenter_id %>
+    <%= f.hidden_field :project_id %>
     <%= f.submit "Enter" %>
 <% end %>
