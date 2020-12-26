@@ -1,11 +1,21 @@
 <div class='comments'>
   <% if @project.comments.empty? %>
-    Be the first to comment!
+    There are currently no comments!
   <% else %>
     <% @project.comments.each do |comment| %>
     <div class='commentbox'>
       <div class='comment'><%= comment.content %></div>
       <div class='commenter'><%= comment.commenter.name%></div>
+      <% if current_user.id == comment.commenter_id %>
+      <div class='edit-box'>
+        <div class ='edit-comment'>
+          <%= link_to "Edit", edit_comment_path(comment) %>  
+        </div>
+        <div class='deletebtn'>
+          <%= link_to "Delete", comment, method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+      </div>
+      <% end %>
     </div>
     <% end %>
 </div>
