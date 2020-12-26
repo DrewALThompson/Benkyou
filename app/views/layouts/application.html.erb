@@ -10,6 +10,8 @@
   </head>
 
   <body>
+  
+  <%= render 'layouts/header'%>
   <div class='flash'>
   <% flash.each do |type, msg| %>
     <div class='flash-msg'>
@@ -18,10 +20,6 @@
   <% end %>
   </div>
   
-  <%= render 'layouts/header'%>
-  
     <%= yield %>
-  <footer>
-  </footer>
   </body>
 </html>
