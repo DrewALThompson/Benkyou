@@ -129,6 +129,9 @@ GEM
       rack (>= 1.6.2, < 3)
     omniauth-facebook (8.0.0)
       omniauth-oauth2 (~> 1.2)
+    omniauth-github (1.4.0)
+      omniauth (~> 1.5)
+      omniauth-oauth2 (>= 1.4.0, < 2.0)
     omniauth-oauth2 (1.7.0)
       oauth2 (~> 1.4)
       omniauth (~> 1.9)
@@ -264,6 +267,7 @@ DEPENDENCIES
   listen (~> 3.2)
   omniauth
   omniauth-facebook
+  omniauth-github
   puma (~> 4.1)
   rack_session_access
   rails (~> 6.0.3, >= 6.0.3.4)

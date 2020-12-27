@@ -4,15 +4,23 @@ class SessionsController < ApplicationController
     end 
 
     def create
-        if auth_hash = request.env["omniauth.auth"]
-            user = User.find_or_create_by(email: oauth_email) do |u|
-                u.name = auth['info']['name']
-                u.email = auth['info']['email']
-                u.password = auth['info']['password']
-                u.uid = auth['uid']
+        if  auth
+            user = User.find_by(uid: oauth_uid)
+            if user
+                session[:user_id] = user.id
+                flash.notice = "Welcome back #{user.name}!"
+                redirect_to root_url
+            else
+                user = User.create(name: auth['info']['name'], email: 'temp@temp.com', password: 'Temporary1', uid: oauth_uid)
+                if user.valid?
+                    session[:user_id] = user.id
+                    flash.notice = 'Please make sure to change your email and password! They are set to temp@temp.com & Temporary1'
+                    redirect_to edit_user_path(user)
+                else
+                    flash.notice = 'Failed to find or create User'
+                    redirect_to login_path
+                end
             end
-            session[:user_id] = user.id
-            redirect_to root_url
         else 
             user = User.find_by(name: params[:name])
             if user && user.authenticate(params[:password])
@@ -25,17 +33,6 @@ class SessionsController < ApplicationController
         end
     end 
 
-    # def facebook
-    #     @user = User.find_or_create_by(uid: auth['uid']) do |u|
-    #         u.name = auth['info']['name']
-    #         u.email = auth['info']['email']
-    #         u.password = auth['info']['password']
-    #         u.uid = auth['uid']
-    #     end
-
-    #     session[:user_id] = @user.id
-    #     redirect_to root_url
-    # end
 
     def destroy
         session.delete :user_id
@@ -48,7 +45,7 @@ class SessionsController < ApplicationController
         request.env['omniauth.auth']
     end
 
-    def oauth_email
-        request.env["omniauth.auth"]["email"]
+    def oauth_uid
+        request.env["omniauth.auth"]["uid"]
     end
 end
