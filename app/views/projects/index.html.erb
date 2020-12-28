@@ -21,15 +21,10 @@
       </div>
       <div class='owner'>
         <%= link_to " By #{project.owner.name}", user_path(project.owner) %>
-      </div>
+      </div><br>
       <div class='edit-box'>
         <% if current_user && current_user.id == project.owner_id %>
-        <div class ='edit-project'>
-          <%= link_to "Edit Project", edit_project_path(project) %>  
-        </div>
-        <div class='deletebtn'>
-          <%= link_to "Delete", project, method: :delete, data: { confirm: "Are you sure?" } %>
-        </div>
+        <%= link_to "Edit Project", edit_project_path(project) %> | <%= link_to "Delete", project, method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
       </div>
     </div>  

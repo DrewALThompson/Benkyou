@@ -36,7 +36,7 @@ class UsersController < ApplicationController
         if @user.valid?
             redirect_to user_projects_path(@user)
         else
-            flash.now.alert = "Failed to update #{@user.name}. Please make sure all fields are filled in correctly."
+           flash.now.alert = "Failed to update #{@user.name}. Please make sure all fields are filled in correctly."
            render 'edit'
         end
     end 

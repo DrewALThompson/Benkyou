@@ -36,11 +36,10 @@ class ProjectsController < ApplicationController
         @project = Project.find(params[:id])
         @project.update(project_params)
         if @project.save
-            flash.now[:alert] = "Project Saved"
-            render :show
+            redirect_to project_path(@project)
         else
             flash.now[:alert] = "Project failed to save"
-            render :show
+            render :edit
         end
     end
 
