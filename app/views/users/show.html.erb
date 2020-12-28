@@ -1,6 +1,6 @@
 
 <div class='new-form'>
-    <% if current_user == @user || current_user.admin %>
+    <% if current_user && (current_user == @user || current_user.admin) %>
       <% if current_user == @user %>
       <%= link_to "View My Projects!", user_projects_path(@user) %><br>
       <%= link_to "View My Words!", user_words_path(@user)%><br>

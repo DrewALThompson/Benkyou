@@ -6,7 +6,7 @@
     <div class='commentbox'>
       <div class='comment'><%= comment.content %></div>
       <div class='commenter'><%= comment.commenter.name%></div>
-      <% if current_user.id == comment.commenter_id %>
+      <% if current_user && current_user.id == comment.commenter_id %>
       <div class='edit-box'>
         <%= link_to "Edit", edit_comment_path(comment) %> | <%= link_to "Delete", comment, method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
