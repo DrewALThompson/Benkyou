@@ -1,7 +1,11 @@
-<h1>The page you were looking for doesn't exist!</h1>
-<%= link_to "Go Home", root_path%>
-<% if current_user %>
-<%= link_to "My Words", user_words_path(current_user)%>
-<%= link_to "Create a Project", new_project_path %>
-<% end %>
+<div class='container'>
+  <h1>The page you were looking for doesn't exist!</h1>
+  <div class='inner-container'>
+    <%= link_to "Go Home", root_path%>
+    <% if current_user %>
+      <%= link_to "My Words", user_words_path(current_user)%>
+      <%= link_to "Create a Project", new_project_path %>
+    <% end %>
+  </div>
+</div>
 
