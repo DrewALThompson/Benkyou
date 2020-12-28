@@ -1,15 +1,12 @@
-<div class='flash'>
-  <% flash.each do |type, msg| %>
-    <p><%= msg %></p>
+<div class='login-box'>  
+  <%= form_tag('/login', method: 'post') do %>
+    <br>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %><br><br>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %><br><br>
+    <%= submit_tag 'Login' %><br><br>
   <% end %>
+
+  <%= link_to 'Signin with Github', '/auth/github' %><br><br>
 </div>
-
-<%= form_tag('/login', method: 'post') do %>
-  <%= label_tag :name %>
-  <%= text_field_tag :name %>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <%= submit_tag 'Login' %>
-<% end %>
-
-<%= link_to 'Signin with Github', '/auth/github' %>
