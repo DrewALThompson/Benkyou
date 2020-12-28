@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
             redirect_to project_path(@project)
         else
             flash.now[:alert] = 'Project Failed to create. Please include a title and content!'
-            render :new
+            render 'new'
         end
     end
 
