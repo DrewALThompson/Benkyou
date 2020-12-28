@@ -1,30 +1,32 @@
 <%= render 'errors' %>
 <% if current_user.id == @user.id %>
-  <div class='edit-form'>
+  <div class='new-form'>
     <%= form_for(@user) do |f| %>
+    <br>
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name %><br>
       <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.text_field :email %><br>
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password %><br>
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
-      <%= f.submit %>
+      <%= f.password_field :password_confirmation %><br><br>
+      <%= f.submit %><br><br>
     <% end %>
   </div>
 <% elsif current_user.id != @user.id && current_user.admin %>
-  <div class='edit-form'>
+  <div class='new-form'>
     <%= form_for(@user) do |f| %>
+    <br>
       <%= f.label :name %>
-      <%= f.text_field :name, placeholder: @user.name %>
+      <%= f.text_field :name, placeholder: @user.name %><br>
       <%= f.label :email %>
-      <%= f.text_field :email, placeholder: @user.email %>
+      <%= f.text_field :email, placeholder: @user.email %><br>
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password %><br>
       <%= f.label :admin %>
-      <%= f.check_box :admin%>
-      <%= f.submit %>
+      <%= f.check_box :admin%><br><br>
+      <%= f.submit %><br><br>
     <% end %>
   </div>
 <% end %>

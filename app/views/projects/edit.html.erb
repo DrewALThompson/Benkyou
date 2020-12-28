@@ -1,12 +1,15 @@
 <%= render 'sidewoform' %>
 <%= render 'errors' %>
-<%= form_for(@project) do |f| %>
-  <%= f.text_field :title, :value => "#{@project.title}" %>
-  <%= f.text_area :content, :value => "#{@project.content}" %>
-  <%= f.text_field :translation_title %>
-  <%= f.text_area :translation%>
-  <%= f.submit "Save" %>
-<% end %>
+<div class='new-form'>
+  <%= form_for(@project) do |f| %>
+  <br>
+    <%= f.text_field :title, :value => "#{@project.title}" %><br>
+    <%= f.text_area :content, :value => "#{@project.content}" %><br>
+    <%= f.text_field :translation_title %><br>
+    <%= f.text_area :translation%><br>
+    <%= f.submit "Save" %><br><br>
+  <% end %>
+</div>
 
 <%= render 'commentwoform' %>
 

@@ -8,12 +8,7 @@
       <div class='commenter'><%= comment.commenter.name%></div>
       <% if current_user.id == comment.commenter_id %>
       <div class='edit-box'>
-        <div class ='edit-comment'>
-          <%= link_to "Edit", edit_comment_path(comment) %>  
-        </div>
-        <div class='deletebtn'>
-          <%= link_to "Delete", comment, method: :delete, data: { confirm: "Are you sure?" } %>
-        </div>
+        <%= link_to "Edit", edit_comment_path(comment) %> | <%= link_to "Delete", comment, method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
       <% end %>
     </div>
@@ -23,7 +18,7 @@
 <div class='comment-form'>
   <% if current_user %>
     <%= form_for(@comment) do |f| %>
-      <%= f.text_area :content, placeholder: "Write your comment here!" %>
+      <%= f.text_area :content, placeholder: "Write your comment here!" %><br>
       <%= f.hidden_field :commenter_id, value: current_user.id  %>
       <%= f.hidden_field :project_id, value: @project.id %>
       <%= f.submit "Enter" %>

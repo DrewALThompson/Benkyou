@@ -10,6 +10,9 @@
   </div>
   <br>
   <div class='words-container'>
+    <% if current_user.words.empty? %>
+      You have no saved words right now!
+    <% else %>
       <% current_user.words.each do |word| %>
       <div class='word-box'>
         <div class='name'><%= word.name %></div>
@@ -18,5 +21,6 @@
       </div>
       <br>
       <% end %>
+    <% end %>
   </div>
 </div>
