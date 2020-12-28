@@ -1,3 +1,15 @@
-// Place all the styles related to the Words controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.words {
+  margin-top: 10px;
+  margin-left: 10px; 
+}
+
+.word {
+  width: 20%;
+  height: 100%;
+  padding: 20 px;
+  border: solid 2px black;
+  box-shadow: 2px 3px 3px 2px;
+  background: #DEE1EB;
+  border-radius: 4px;
+  text-align:center;
+}

@@ -1,10 +1,13 @@
 <div class='words'>
-  <% current_user.words.each do |word| %>
-    <div class='words'>
+  <% @words.each do |word| %>
+    <div class='word'>
       <div class='name'><%= word.name %></div>
       <div class='name-alt'><%= word.name2 %></div>
       <div class='definition'><%= word.definition %></div>
-      <%= link_to "Edit", edit_word_path(word) %>
+      <% if current_user.id == word.user.id %>
+        <%= link_to "Edit", edit_word_path(word) %>
+      <% end %>
     </div>
+    <br> 
     <% end %>
 </div>
