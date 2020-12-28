@@ -1,36 +1,39 @@
-<% if @projects.empty? %>
-  There are currently no projects! Try adding your own! <%= link_to "Create a project", new_project_path %>
-<% else %>
-  <% @projects.each do |project| %>
-  <br>
-  <div class='projects'>
-    <div class='titles'>
-      <div class='title'>
-        <%= link_to "#{project.title}", project_path(project) %>
+<div class='casing'>  
+  <% if @projects.empty? %>
+    There are currently no projects! Try adding your own! <%= link_to "Create a project", new_project_path %>
+  <% else %>
+    <% @projects.each do |project| %>
+    <br>
+    <div class='projects'>
+      <div class='titles'>
+        <div class='title'>
+          <%= link_to "#{project.title}", project_path(project) %>
+        </div>
+        <div class='trns-title'>
+          <%= project.translation_title%>
+        </div>
       </div>
-      <div class='trns-title'>
-        <%= project.translation_title%>
+      <div class='contents'>
+        <%= project.content %>
       </div>
-    </div>
-    <div class='contents'>
-      <%= project.content %>
-    </div>
-    <div class='trns'>
-      <%= project.translation %>
-    </div>
-    <div class='owner'>
-      By <%= link_to "#{project.owner.name}", user_path(project.owner) %>
-    </div>
-    <div class='edit-box'>
-    <% if current_user && current_user.id == project.owner_id %>
-      <div class ='edit-project'>
-        <%= link_to "Edit Project", edit_project_path(project) %>  
+      <div class='trns'>
+        <%= project.translation %>
       </div>
-      <div class='deletebtn'>
-        <%= link_to "Delete", project, method: :delete, data: { confirm: "Are you sure?" } %>
+      <div class='owner'>
+        <%= link_to " By #{project.owner.name}", user_path(project.owner) %>
       </div>
+      <div class='edit-box'>
+        <% if current_user && current_user.id == project.owner_id %>
+        <div class ='edit-project'>
+          <%= link_to "Edit Project", edit_project_path(project) %>  
+        </div>
+        <div class='deletebtn'>
+          <%= link_to "Delete", project, method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+      <% end %>
+      </div>
+    </div>  
     <% end %>
-    </div>
-  </div>  
   <% end %>
-<% end %>
+  <br>
+</div>

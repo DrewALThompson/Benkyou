@@ -19,7 +19,7 @@
  .topnav {
     background-color: #5B84DE;
     overflow: hidden;
-    border-bottom: solid #142952 2px;
+    border: solid #142952 2px;
     /* position: -webkit-sticky; 
     position: sticky; */
     /* top: 0; */
@@ -95,6 +95,8 @@
   border: solid black 2px;
   text-align: center;
   padding: 5px;
+  background-color: #609BD8;
+  border-radius: 25px;
 }
 
 .inner-container {
@@ -103,6 +105,11 @@
 
 .inner-container a {
   padding: 10px;
+}
+
+.flash {
+  margin: 2px;
+  text-align: center;
 }
 
 body {
