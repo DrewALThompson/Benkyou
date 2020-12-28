@@ -1,16 +1,17 @@
 <%= render 'errors' %>
 <div class='new-form'>
+  <br>
   <%= form_for(@user) do |f| %>
-    <%= f.label :name%><br>
-    <%= f.text_field :name %><br>
-    <%= f.label :email %><br>
-    <%= f.text_field :email%><br>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br>
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %><br><br>
-    <%= f.submit %><br>
+    <br><div class='textfield'><%= f.label :name%>
+    <%= f.text_field :name %></div><br>
+    <div class='textfield'><%= f.label :email %>
+    <%= f.text_field :email%></div><br>
+    <div class='textfield'><%= f.label :password %>
+    <%= f.password_field :password %></div><br>
+    <div class='textfield'><%= f.label :password_confirmation %> 
+    <%= f.password_field :password_confirmation %></div><br>
+    <%= f.submit "Sign Up" %><br><br>
   <% end %>
 
-  <%= link_to 'Signup with Github', '/auth/github' %>
+  <%= link_to 'Signup with Github', '/auth/github' %><br><br>
 </div>
