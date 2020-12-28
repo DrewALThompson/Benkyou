@@ -1,7 +1,11 @@
-<%= form_for(@word) do |f| %>
-    <%= f.text_field :name %>
-    <%= f.text_field :name2 %>
-    <%= f.text_area :definition %>
+<%= render 'errors' %>
+<div class='edit-word'>
+  <%= form_for(@word) do |f| %>
+    <br>
+    <%= f.text_field :name %><br><br>
+    <%= f.text_field :name2 %><br><br>
+    <%= f.text_area :definition %><br><br>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.submit "Save Word!" %>
- <% end %>
+    <%= f.submit "Save Word!" %><br><br>
+  <% end %>
+</div>

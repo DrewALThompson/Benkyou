@@ -1,6 +1,8 @@
 .words {
   margin-top: 10px;
-  margin-left: 10px; 
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
 }
 
 .word {
@@ -11,5 +13,18 @@
   box-shadow: 2px 3px 3px 2px;
   background: #DEE1EB;
   border-radius: 4px;
+  text-align:center;
+}
+
+.edit-word {
+    margin:auto;
+  margin-top: 50px;
+  width: 50%;
+  height: 100%;
+  padding: 20 px;
+  border: solid 2px black;
+  box-shadow: 2px 4px;
+  background: #DEE1EB;
+  border-radius: 25px;
   text-align:center;
 }
