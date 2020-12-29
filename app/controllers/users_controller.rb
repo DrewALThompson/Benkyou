@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     def create 
         @user = User.create(user_params)
         if @user.valid?
-            session[:id] = @user.id
+            session[:user_id] = @user.id
             flash.alert = 'Welcome to Benkyou!'
             redirect_to root_url
         else

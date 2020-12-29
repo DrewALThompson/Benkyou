@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
 
     def destroy
         @comment.destroy
-        redirect_to projects_path
+        redirect_back(fallback_location: root_path)
     end
 
     private
